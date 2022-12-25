@@ -15,4 +15,49 @@ bin-release/
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# information for Eclipse / Flash import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
+public class DoPayroll {
+    public static void main(String args[])
+                                  throws IOException {
+        Scanner diskScanner =
+            new Scanner(new File("EmployeeInfo.txt"));
+        for (int empNum = 1; empNum <= 3; empNum++) {
+            payOneEmployee(diskScanner);
+        }
+        diskScanner.close();
+    }
+    static void payOneEmployee(Scanner aScanner) {
+        Employee anEmployee = new Employee();
+        anEmployee.setName(aScanner.nextLine());
+        anEmployee.setJobTitle(aScanner.nextLine());
+        anEmployee.cutCheck(aScanner.nextDouble());
+        aScanner.nextLine();
+    }
+}
+For example, you can follow the pattern in this listing:
+
+/*
+ * The pattern in Listing 8-2
+ */
+import java.util.Scanner;
+<b>import java.io.File;</b>
+<b>import java.io.IOException;</b>
+class <i>SomeClassName</i> {
+    public static void main(String args[]) 
+                                  <b>throws IOException</b> {
+        Scanner <b><i>scannerName</i></b> =
+            new Scanner(<b>new File("</b><b><i>SomeFileName</i></b><b>"</b>));
+        //<i>Some code goes here</i>
+        <b><i>scannerName</i></b>.nextInt();
+        <b><i>scannerName</i></b>.nextDouble();
+        <b><i>scannerName</i></b>.next();
+        <b><i>scannerName</i></b>.nextLine();
+        //<i>Some code goes here</i>
+        <b><i>scannerName</i></b>.close();
+    }
+}
+
+
+
